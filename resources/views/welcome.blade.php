@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel 9 + Bootstrap Template</title>
+        <title>Books</title>
 
         {{-- Includiamo gli assets con la direttiva @vite --}}
         @vite('resources/js/app.js')
@@ -14,17 +14,24 @@
         <main>
             <div class="container">
                 <div class="row">
-                    <div class="col text-center">
+                    @foreach ($books as $book)
+                        <div class="col">
 
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ Vite::asset('resources/img/laravel.png') }}" alt="">
+                            <ul>
+                                <li>
+                                    ID: {{ $book->id }}
+                                </li>
+                                <li>
+                                    TITLE: {{ $book->title }}
+                                </li>
+                                <li>
+                                    AUTHOR: {{ $book->author }}
+                                </li>
+                            </ul>
 
-                                <h1 class="card-title">Laravel 9 + Bootstrap Template</h1>
-                            </div>
+
                         </div>
-
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </main>
